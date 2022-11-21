@@ -16,7 +16,7 @@ git
 
 Pasos para realizar desde la consola cuando se tengan todos los requerimientos
 
-- Descarga el repositorio usando **git clone**
+- Descarga el repositorio usando `git clone`
 - crear un entorno virtual **.venv** y activalo
 - Instala los requerimientos del proyecto los cuales estan en **requirements.txt** esto lo hacemos ejecutando:
   `pip install -r requirements.txt` estando en la carpeta del proyecto
