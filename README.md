@@ -2,9 +2,9 @@
 
 Proyecto Final Asignatura Aplicaciones en la WEB y Redes Inalámbricas
 
-Miguel Ángel Rincón Clavijo - 1942985
-Carlos Bermudez Valencia - 1927623
-Juan Esteban Camargo Chacón - 1924984
+- Miguel Ángel Rincón Clavijo - 1942985
+- Carlos Bermudez Valencia - 1927623
+- Juan Esteban Camargo Chacón - 1924984
 
 ### _Requerimientos_
 
