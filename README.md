@@ -1,20 +1,24 @@
-# Proyecto-Aplicaciones-WWW
+# Proyecto Aplicaciones-WEB
 
 Proyecto Final Asignatura Aplicaciones en la WEB y Redes Inalámbricas
 
-# Requerimientos
+Miguel Ángel Rincón Clavijo - 1942985
+Carlos Bermudez Valencia - 1927623
+Juan Esteban Camargo Chacón - 1924984
+
+### _Requerimientos_
 
 Python 3.11.0
 postgresql .
 git
 
-# Instalacion
+### _Instalacion_
 
 Pasos para realizar desde la consola cuando se tengan todos los requerimientos
 
-1. descarga el repositorio usando git clone
-2. crear un entorno virtual .venv
-3. activamos el entorno virtual
-4. instalamos los requerimientos del proyecto los cuales estan en _requirementes.txt_ esto lo hacemos ejecutando _pip install -r requirements.txt_ estando en la carpeta del proyecto
-5. ejecutar el comando _python manage.py makemigrations_ y luego _python manage.py migrate_
-6. finalmente _python manage.py runserver_ para lanzar el servidor de Django en el puerto indicado en la consola
+- Descarga el repositorio usando **git clone**
+- crear un entorno virtual **.venv** y activalo
+- Instala los requerimientos del proyecto los cuales estan en **requirements.txt** esto lo hacemos ejecutando:
+  `pip install -r requirements.txt` estando en la carpeta del proyecto
+- ejecutar el comando `python manage.py makemigrations` y luego `python manage.py migrate`
+- finalmente `python manage.py runserver` para lanzar el servidor de Django en el puerto indicado en la consola
