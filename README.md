@@ -6,6 +6,7 @@ Proyecto Final Asignatura Aplicaciones en la WEB y Redes Inalámbricas
 - Carlos Bermudez Valencia - 1927623
 - Daniel Felipe Vélez Cuaical - 1924306
 - Juan Esteban Camargo Chacón - 1924984
+- Alejandro Satizabal Narvaez - 1726041
 
 ### _Requerimientos_
 
