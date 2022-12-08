@@ -42,7 +42,9 @@ class UserView(View):
     def post(self, request):
         res = {'message': 'success'}  
         data = json.loads(request.body)
-        print(data)
+        print(request)
+        print(request.body)
+        print(request.headers)
         models.User.objects.create(
             email=data['email'],
             password=data['password'],

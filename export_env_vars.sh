@@ -1,5 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 set a-
-source .env
+source ./.env
 set a+
+
+echo "Las variables han sido exportadas"

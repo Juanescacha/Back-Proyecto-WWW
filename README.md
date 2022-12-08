@@ -24,6 +24,6 @@ Pasos para realizar desde la consola cuando se tengan todos los requerimientos
   `pip install -r requirements.txt` estando en la carpeta del proyecto
 - Exportar las variables de entorno para la conexión con la base de datos:
   - En GNU/Linux:
-    `bash export_env_vars.sh`
+    `source export_env_vars.sh`
 - ejecutar el comando `python manage.py makemigrations` y luego `python manage.py migrate`
 - finalmente `python manage.py runserver` para lanzar el servidor de Django en el puerto indicado en la consola
