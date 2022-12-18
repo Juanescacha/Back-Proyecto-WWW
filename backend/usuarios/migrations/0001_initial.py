@@ -7,20 +7,38 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Usuario',
+            name="Usuario",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nombre', models.CharField(max_length=50)),
-                ('email', models.EmailField(max_length=50, unique=True)),
-                ('password', models.CharField(max_length=50)),
-                ('url_imagen', models.URLField()),
-                ('tipo', models.CharField(choices=[('AD', 'Administrador'), ('AS', 'Asistente'), ('US', 'Usuario')], default='US', max_length=2)),
-                ('estado', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("nombre", models.CharField(max_length=50)),
+                ("email", models.EmailField(max_length=50, unique=True)),
+                ("password", models.CharField(max_length=50)),
+                ("url_imagen", models.URLField()),
+                (
+                    "tipo",
+                    models.CharField(
+                        choices=[
+                            ("AD", "Administrador"),
+                            ("AS", "Asistente"),
+                            ("US", "Usuario"),
+                        ],
+                        default="US",
+                        max_length=2,
+                    ),
+                ),
+                ("estado", models.BooleanField(default=True)),
             ],
         ),
     ]

@@ -7,18 +7,25 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('titulo', models.CharField(max_length=50)),
-                ('descripcion', models.CharField(max_length=200)),
-                ('url_media', models.URLField(max_length=300)),
-                ('estado', models.BooleanField(default=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("titulo", models.CharField(max_length=50)),
+                ("descripcion", models.CharField(max_length=200)),
+                ("url_media", models.URLField(max_length=300)),
+                ("estado", models.BooleanField(default=True)),
             ],
         ),
     ]
