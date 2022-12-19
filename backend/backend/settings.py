@@ -82,11 +82,17 @@ WSGI_APPLICATION = "backend.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
+        "NAME": "postgres",
         "USER": "postgres",
-        "PASSWORD": "Zi8SHqQkuXODvnMtUTUD",
-        "HOST": "containers-us-west-173.railway.app",
-        "PORT": "7481",
+        "PASSWORD": "1234",
+        "HOST": "localhost",
+        "PORT": "5432",
+        # Remoto
+        # "NAME": "railway",
+        # "USER": "postgres",
+        # "PASSWORD": "Zi8SHqQkuXODvnMtUTUD",
+        # "HOST": "containers-us-west-173.railway.app",
+        # "PORT": "7481",
     }
 }
 
