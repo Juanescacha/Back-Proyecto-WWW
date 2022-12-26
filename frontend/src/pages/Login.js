@@ -55,26 +55,26 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-sm bg-contain bg-center bg-no-repeat`}
 `
 
-export default ({
+const LoginPage = ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Sign In To Treact",
+  headingText = "Iniciar sesión en Treact",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
-      text: "Sign In With Google",
-      url: "https://google.com",
+      text: "Iniciar sesión con Google",
+      url: "#",
     },
     {
       iconImageSrc: twitterIconImageSrc,
-      text: "Sign In With Twitter",
-      url: "https://twitter.com",
+      text: "Iniciar sesión con Twitter",
+      url: "#",
     },
   ],
-  submitButtonText = "Sign In",
+  submitButtonText = "Iniciar sesión",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = "#",
+  signupUrl = "/signup",
 }) => (
   <AnimationRevealPage>
     <Container>
@@ -101,11 +101,11 @@ export default ({
                 ))}
               </SocialButtonsContainer>
               <DividerTextContainer>
-                <DividerText>Or Sign in with your e-mail</DividerText>
+                <DividerText>o</DividerText>
               </DividerTextContainer>
               <Form>
-                <Input type="email" placeholder="Email" />
-                <Input type="password" placeholder="Password" />
+                <Input type="email" placeholder="Correo electrónico" />
+                <Input type="password" placeholder="Contraseña" />
                 <SubmitButton type="submit">
                   <SubmitButtonIcon className="icon" />
                   <span className="text">{submitButtonText}</span>
@@ -116,13 +116,13 @@ export default ({
                   href={forgotPasswordUrl}
                   tw="border-b border-gray-500 border-dotted"
                 >
-                  Forgot Password ?
+                  ¿Olvidaste tu contraseña?
                 </a>
               </p>
               <p tw="mt-8 text-sm text-gray-600 text-center">
-                Dont have an account?{" "}
+                ¿No tienes una cuenta?{" "}
                 <a href={signupUrl} tw="border-b border-gray-500 border-dotted">
-                  Sign Up
+                  Regístrate
                 </a>
               </p>
             </FormContainer>
@@ -135,3 +135,5 @@ export default ({
     </Container>
   </AnimationRevealPage>
 )
+
+export default LoginPage
