@@ -55,27 +55,27 @@ const IllustrationImage = styled.div`
   ${tw`m-12 xl:m-16 w-full max-w-lg bg-contain bg-center bg-no-repeat`}
 `
 
-export default ({
+const Signup = ({
   logoLinkUrl = "#",
   illustrationImageSrc = illustration,
-  headingText = "Sign Up For Treact",
+  headingText = "Unete a Treact",
   socialButtons = [
     {
       iconImageSrc: googleIconImageSrc,
-      text: "Sign Up With Google",
+      text: "Regístrate con Google",
       url: "https://google.com",
     },
     {
       iconImageSrc: twitterIconImageSrc,
-      text: "Sign Up With Twitter",
+      text: "Regístrate con Twitter",
       url: "https://twitter.com",
     },
   ],
-  submitButtonText = "Sign Up",
+  submitButtonText = "Regístrate",
   SubmitButtonIcon = SignUpIcon,
   tosUrl = "#",
   privacyPolicyUrl = "#",
-  signInUrl = "#",
+  signInUrl = "/login",
 }) => (
   <AnimationRevealPage>
     <Container>
@@ -102,7 +102,7 @@ export default ({
                 ))}
               </SocialButtonsContainer>
               <DividerTextContainer>
-                <DividerText>Or Sign up with your e-mail</DividerText>
+                <DividerText>o</DividerText>
               </DividerTextContainer>
               <Form>
                 <Input type="email" placeholder="Email" />
@@ -112,26 +112,27 @@ export default ({
                   <span className="text">{submitButtonText}</span>
                 </SubmitButton>
                 <p tw="mt-6 text-xs text-gray-600 text-center">
-                  I agree to abide by treact's{" "}
+                  Al registrarte, aceptas los{" "}
                   <a href={tosUrl} tw="border-b border-gray-500 border-dotted">
-                    Terms of Service
+                    Terminos de Servicio
                   </a>{" "}
-                  and its{" "}
+                  y la{" "}
                   <a
                     href={privacyPolicyUrl}
                     tw="border-b border-gray-500 border-dotted"
                   >
-                    Privacy Policy
-                  </a>
+                    Política de privacidad
+                  </a>{" "}
+                  de Treact.
                 </p>
 
                 <p tw="mt-8 text-sm text-gray-600 text-center">
-                  Already have an account?{" "}
+                  ¿Ya tienes una cuenta?{" "}
                   <a
                     href={signInUrl}
                     tw="border-b border-gray-500 border-dotted"
                   >
-                    Sign In
+                    Iniciar sesión
                   </a>
                 </p>
               </Form>
@@ -145,3 +146,5 @@ export default ({
     </Container>
   </AnimationRevealPage>
 )
+
+export default Signup
