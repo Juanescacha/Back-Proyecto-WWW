@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'usuarios',
     'noticias',
     'productos_base',
+    'productos',
     'rest_framework',
     'corsheaders',
 ]
