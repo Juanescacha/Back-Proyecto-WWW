@@ -15,5 +15,4 @@ class UserSerializer(serializers.ModelSerializer):
         )
         read_only_fields = (
             'created_at',
-            'role',
         )
