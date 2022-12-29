@@ -9,9 +9,9 @@ class PostSerializer(serializers.ModelSerializer):
             'title',
             'description',
             'url_media',
-            'status',
+            'is_active',
             'created_at',
         )
         read_only_fields = (
-            'created_at'
+            'created_at',
         )
