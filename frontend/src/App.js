@@ -8,16 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import LoginPage from "pages/Login"
 import SignupPage from "pages/Signup"
 import BlogIndexPage from "pages/BlogIndex"
-
-const Dev = () => {
-  return (
-    <div>
-      <a href="/login">Login</a> <br />
-      <a href="/signup">Signup</a> <br />
-      <a href="/blogs">Blogs</a> <br />
-    </div>
-  )
-}
+import LandingPage from "pages/LandingPage"
 
 const App = () => {
   return (
@@ -25,7 +16,7 @@ const App = () => {
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/" element={<Dev />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/blogs" element={<BlogIndexPage />} />
