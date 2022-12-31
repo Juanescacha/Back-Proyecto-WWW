@@ -74,7 +74,7 @@ const LoginPage = ({
   submitButtonText = "Iniciar sesión",
   SubmitButtonIcon = LoginIcon,
   forgotPasswordUrl = "#",
-  signupUrl = "/signup",
+  signupUrl = "/register",
 }) => (
   <AnimationRevealPage>
     <Container>
