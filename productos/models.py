@@ -10,7 +10,7 @@ class Product(models.Model):
     vendor_address = models.CharField(max_length=300)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    base_product = models.ForeignKey(BaseProduct, null=True)
+    base_product = models.ForeignKey(BaseProduct, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
