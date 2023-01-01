@@ -1,22 +1,24 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
+class User(models.Model):
+   
+    class Role(models.TextChoices):
+        CLIENT_ROLE = "client", _("client")
+        ASSISTANT_ROLE = "assistant", _("assistant")
+        ADMINISTRATOR_ROLE = "administrator", _("administrator")
 
-
-class Usuario(models.Model):
-
-    TIPO_CHOICES = [
-        ("AD", "Administrador"),
-        ("AS", "Asistente"),
-        ("US", "Usuario"),
-    ]
-
-    nombre = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50, unique=True)
+    name = models.CharField(max_length=200)
+    email = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=50)
-    url_imagen = models.URLField(max_length=200)
-    tipo = models.CharField(max_length=2, choices=TIPO_CHOICES, default="US")
-    estado = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    role = models.CharField(
+        max_length=13,  
+        choices=Role.choices,
+        default=Role.CLIENT_ROLE,
+    )
 
     def __str__(self):
-        return self.nombre
+        return self.name

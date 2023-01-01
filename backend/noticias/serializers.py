@@ -1,15 +1,14 @@
 from rest_framework import serializers
-from .models import User
+from .models import Post
 
-class UserSerializer(serializers.ModelSerializer):
+class PostSerializer(serializers.ModelSerializer):
     class Meta():
-        model = User
+        model = Post
         fields = (
             'id',
-            'name',
-            'email',
-            'password',
-            'role',
+            'title',
+            'description',
+            'url_media',
             'is_active',
             'created_at',
         )

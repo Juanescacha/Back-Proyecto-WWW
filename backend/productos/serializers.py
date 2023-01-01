@@ -1,17 +1,20 @@
 from rest_framework import serializers
-from .models import Producto
+from .models import Product
 
-
-class ProductoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Producto
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta():
+        model = Product
         fields = (
-            "id",
-            "nombre",
-            "precio",
-            "url_imagen",
-            "url_origen",
-            "direccion_proveedor",
-            "vistas",
-            "estado",
+            'id',
+            'name',
+            'price',
+            'url_image',
+            'url_origin',
+            'vendor_address',
+            'is_active',
+            'created_at',
+            'base_product',
+        )
+        read_only_fields = (
+            'created_at',
         )
