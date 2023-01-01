@@ -94,14 +94,14 @@ WSGI_APPLICATION = 'api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-
+"""
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///db.sqlite3',
         conn_max_age=600,
     )
-}
-""" DATABASES = {
+}"""
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('PGNAME'),
@@ -110,7 +110,7 @@ DATABASES = {
         'HOST': os.environ.get('PGHOST'),
         'PORT': os.environ.get('PGPORT'),
     }
-} """
+}
 
 
 
