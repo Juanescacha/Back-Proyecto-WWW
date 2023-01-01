@@ -1,15 +1,16 @@
 from django.db import models
+from productos_base.models import BaseProduct
 
-
-class Producto(models.Model):
-
-    nombre = models.CharField(max_length=50)
-    precio = models.IntegerField()
-    url_imagen = models.URLField(max_length=300)
-    url_origen = models.URLField(max_length=300)
-    direccion_proveedor = models.JSONField()
-    vistas = models.IntegerField(default=0)
-    estado = models.BooleanField(default=True)
+# Create your models here.
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    price = models.IntegerField()
+    url_image = models.URLField(max_length=500)
+    url_origin = models.URLField(max_length=500)
+    vendor_address = models.CharField(max_length=300)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    base_product = models.ForeignKey(BaseProduct, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.nombre
+        return self.name
