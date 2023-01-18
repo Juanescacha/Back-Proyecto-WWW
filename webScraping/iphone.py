@@ -2,31 +2,33 @@ from selenium import webdriver
 import os 
 import driver
 import requests
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
+import  conexion_bd
 
-def extraData():
+def extraData(tableName):
+    
+    conexion_bd.truncateTable(tableName)
     
     baseUrl = "https://tiendasishop.com/co/iphone"
-
     response = requests.get(baseUrl)
-
     soup = BeautifulSoup(response.text, 'html.parser')
     #print(soup) 
 
-    lista_link = []
     for div in soup.find_all("li", class_="item product product-item"):
-     #print("===================")
-     #print(div.find("div",class_="vtex-product-summary-2-x-nameContainer flex items-start justify-center pv6").h3.string)
-     #print(div.find("div",class_="co16-discover-column-new__description-wrapper").p.string)
-     #print(div.find("div", class_="product-item-info").a["href"])
-     # print(div.find("div",class_="image image--main-loaded").img.get('src')) 
+     print("===================")
+     railway = []
+     nombre = (div.find("div",class_="product details product-item-details").a.string)
+     precio = (div.find("span",class_="price-container price-final_price tax weee").span.string)
+     url_celular = (div.find("div", class_="product-item-info").a["href"])
+     url_imagen = (div.find("span",class_="product-image-wrapper").img["data-src"]) 
+       
+     railway.append(nombre)
+     railway.append(precio)
+     railway.append(url_celular)
+     railway.append(url_imagen)
      
-     url_celular = div.find("div", class_="product-item-info").a["href"]
-     lista_link.append(url_celular)
-    # print(url_celular)
+     print(railway[0])
      
-    for url in lista_link:
-        driver.get(url)
-        driver.get("https://tiendasishop.com/co/iphone-12-64gb-blanco-mgj63lz-a")  
+    conexion_bd.inserData(railway, tableName)
      
-extraData()
+extraData('public.scraping_celular')
