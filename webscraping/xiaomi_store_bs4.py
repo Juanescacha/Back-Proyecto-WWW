@@ -4,21 +4,24 @@ import re
 import json
 import os
 
-from save_products import get_baseproduct_id
+from .save_into_db import get_baseproduct_id
 
-headers = {
-    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36",
-}
 
-xiaomi_urls = [
+def xiaomi_ws(file_name):
+    headers = {
+        "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36",
+    }
+
+    xiaomi_urls = [
         'https://www.xiaomi-store.co/smartphones',
         'https://www.xiaomi-store.co/smartphones?page=2',
     ]
 
-def xiaomi_ws(urls):
+    address = 'Calle 59 # 5 - 30 Bogotá, D.C'
+
     lista_productos = []
 
-    for url in urls:
+    for url in xiaomi_urls:
         page = requests.get(url, headers=headers)#, headers=headers)#, params={"q": "python"})
         print('status code:', page.status_code)
         soup = BeautifulSoup(page.content, 'html.parser')
@@ -35,13 +38,13 @@ def xiaomi_ws(urls):
                     'name': name,
                     'url_origin': producto.get('data-url'),
                     'url_image': producto.get('data-image-url'),
-                    'vendor_address': 'Calle 59 # 5 - 30 Bogotá, D.C',
+                    'vendor_address': address,
                     'is_active': True,
                     'price': producto.get('data-price'), 
-                    'base_product': base_product_id,
+                    'base_product': base_product_id.id,
                 },
             )
-    with open('products_info.json', 'w') as f:
+    with open(file_name, 'w') as f:
         json.dump(
             lista_productos, 
             f,
