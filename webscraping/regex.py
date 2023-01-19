@@ -1,3 +1,5 @@
+import re
+
 base_products = {
     'xiaomi redmi 11': [
         re.compile('.*xiaomi\s*11.*'),
