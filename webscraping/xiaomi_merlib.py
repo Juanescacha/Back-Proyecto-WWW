@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-#from productos.models import Product
-#import save_into_db
+from productos.models import Product
+import save_into_db
 
-def extraData():
+def xiaomi_merlib():
     
     baseUrl = "https://listado.mercadolibre.com.co/xiaomi#D[A:xiaomi]"
     response = requests.get(baseUrl)
@@ -12,9 +12,25 @@ def extraData():
 
     for div in soup.find_all("li", class_="ui-search-layout__item shops__layout-item"):
       print("===================")
-      print(div.find("div",class_="ui-search-item__group ui-search-item__group--title shops__items-group").h2.string)
-      print(div.find("span",class_="price-tag-amount").text)
-      print(div.find("div",class_="ui-search-result__image shops__picturesStyles").a["href"])
-      print(div.find("div",class_="slick-slide slick-active").img["data-src"])
-
-extraData()
+      nombre = (div.find("div",class_="ui-search-item__group ui-search-item__group--title shops__items-group").h2.string)
+      precio = (div.find("span",class_="price-tag-amount").text)
+      url_celular =(div.find("div",class_="ui-search-result__image shops__picturesStyles").a["href"])
+      url_imagen =(div.find("div",class_="slick-slide slick-active").img["data-src"])
+      base_product_id = save_into_db.get_baseproduct_id(nombre)
+      
+      print(nombre)
+      print(precio)
+      print(url_celular)
+      print(url_imagen)
+      
+      p = Product(
+                    name= nombre,
+                    price= precio,
+                    url_image=url_imagen,
+                    url_origin=url_celular,
+                    vendor_address = 'Av El Dorado # 68C - 61 Torre Central Davivienda Bogotá - Colombia',
+                    base_product = base_product_id,
+                )
+      p.save()
+        
+xiaomi_merlib()
