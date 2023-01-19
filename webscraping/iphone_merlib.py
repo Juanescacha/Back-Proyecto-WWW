@@ -3,12 +3,12 @@ from bs4 import BeautifulSoup
 from productos.models import Product
 import save_into_db
 
-def xiaomi_merlib():
+def extraData():
     
-    baseUrl = "https://listado.mercadolibre.com.co/xiaomi#D[A:xiaomi]"
+    baseUrl = "https://listado.mercadolibre.com.co/iphone#D[A:iphone]"
     response = requests.get(baseUrl)
     soup = BeautifulSoup(response.text, 'html.parser')
-    #print(soup)  
+    #print(soup) 
 
     for div in soup.find_all("li", class_="ui-search-layout__item shops__layout-item"):
       print("===================")
@@ -32,5 +32,5 @@ def xiaomi_merlib():
                     base_product = None if not base_product_id else base_product_id.bi,
                 )
       p.save()
-        
-xiaomi_merlib()
+
+extraData()
