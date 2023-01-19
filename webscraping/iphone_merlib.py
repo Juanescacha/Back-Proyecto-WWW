@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from productos.models import Product
 import save_into_db
 
-def extraData():
+def iphone_merlib():
     
     baseUrl = "https://listado.mercadolibre.com.co/iphone#D[A:iphone]"
     response = requests.get(baseUrl)
@@ -33,4 +33,4 @@ def extraData():
                 )
       p.save()
 
-extraData()
+iphone_merlib()
