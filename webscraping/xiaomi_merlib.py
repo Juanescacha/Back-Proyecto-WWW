@@ -29,7 +29,7 @@ def xiaomi_merlib():
                     url_image=url_imagen,
                     url_origin=url_celular,
                     vendor_address = 'Carrera 17 Numero 93 - 09 Bogotá D.C., Colombia',
-                    base_product = base_product_id,
+                    base_product = None if not base_product_id else base_product_id.bi,
                 )
       p.save()
         

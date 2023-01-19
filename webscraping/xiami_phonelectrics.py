@@ -30,7 +30,7 @@ def xiami_phonelectrics():
                     url_image=url_imagen,
                     url_origin=url_celular,
                     vendor_address = 'Av El Dorado # 68C - 61 Torre Central Davivienda Bogotá - Colombia',
-                    base_product = base_product_id,
+                    base_product = None if not base_product_id else base_product_id.bi,
                 )
         p.save()
         
