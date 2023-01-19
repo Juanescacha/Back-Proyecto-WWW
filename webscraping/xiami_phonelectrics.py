@@ -1,8 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import  conexion_bd
 from productos.models import Product
-import save
+from webscraping.save_into_db import get_baseproduct_id
 
 def extraData():
    
@@ -17,7 +16,7 @@ def extraData():
         precio = (div.find("span", class_="money sale-price").text)
         url_celular = (div.find("div", class_="grid-view-item-image").a["href"])
         url_imagen = (div.find("div", class_="grid-view-item-image").img["src"])
-        base_product_id = save.get_baseproduct_id(nombre)
+        base_product_id = get_baseproduct_id(nombre)
    
         print(nombre)
         print(precio)
@@ -30,7 +29,7 @@ def extraData():
                     url_image=url_imagen,
                     url_origin=url_celular,
                     vendor_address = '',
-                    base_product = base_product_id,
+                    base_product = None if not base_product_id else base_product_id.id,
                 )
         p.save()
    

@@ -9,7 +9,7 @@ def get_baseproduct_id(product_name):
         for regexp in base_products[bp_name]:
             if re.match(regexp, product_name.lower()):
                 return BaseProduct.objects.get(name=bp_name)
-    return -1
+    return None
 
 
 def save_products(path_to_products):
@@ -18,7 +18,7 @@ def save_products(path_to_products):
         for product in products:
             name = product['name']
             base_product_id = get_baseproduct_id(name)
-            if base_product_id == -1:
+            if base_product_id == None:
                 print(f"No se ha encontrado el producto_base para {name}, no se pudo agregar el producto.")
             else:
                 p = Product(
