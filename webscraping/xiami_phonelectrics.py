@@ -32,7 +32,3 @@ def extraData():
                     base_product = None if not base_product_id else base_product_id.id,
                 )
         p.save()
-   
- 
- 
-extraData()
