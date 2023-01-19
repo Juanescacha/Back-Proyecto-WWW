@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup
 from productos.models import Product
 import save_into_db
 
-def xiaomi_merlib():
+def samsumg_merlib():
     
-    baseUrl = "https://listado.mercadolibre.com.co/xiaomi#D[A:xiaomi]"
+    baseUrl = "https://listado.mercadolibre.com.co/samsung#D[A:samsung]"
     response = requests.get(baseUrl)
     soup = BeautifulSoup(response.text, 'html.parser')
     #print(soup) 
@@ -14,8 +14,8 @@ def xiaomi_merlib():
       print("===================")
       nombre = (div.find("div",class_="ui-search-item__group ui-search-item__group--title shops__items-group").h2.string)
       precio = (div.find("span",class_="price-tag-amount").text)
-      url_celular =(div.find("div",class_="ui-search-result__image shops__picturesStyles").a["href"])
-      url_imagen =(div.find("div",class_="slick-slide slick-active").img["data-src"])
+      url_celular = (div.find("div",class_="ui-search-result__image shops__picturesStyles").a["href"])
+      url_imagen = (div.find("div",class_="slick-slide slick-active").img["data-src"])
       base_product_id = save_into_db.get_baseproduct_id(nombre)
       
       print(nombre)
@@ -32,5 +32,5 @@ def xiaomi_merlib():
                     base_product = base_product_id,
                 )
       p.save()
-        
-xiaomi_merlib()
+
+samsumg_merlib()
