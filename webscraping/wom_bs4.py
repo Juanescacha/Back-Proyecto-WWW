@@ -4,13 +4,13 @@ import re
 import json
 import os
 
+from save_products import get_baseproduct_id
+
 headers = {
     "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36",
 }
 
-
-
-urls = [
+wom_urls = [
         'https://www.wom.co/equipos?brand=205',
     ]
 
@@ -45,11 +45,7 @@ def wom_ws(urls):
             })
             price = span.get_text()
 
-            base_product_id = None
-            for b_product in base_products:
-                if re.match(b_product, name.lower()):
-                    base_product_id = base_products[b_product]
-                    break
+            base_product_id = get_baseproduct_id(name)
 
             lista_productos.append(
                 {
@@ -66,8 +62,7 @@ def wom_ws(urls):
         json.dump(
             lista_productos, 
             f,
-        ) 
-        
+        )
 
 
 if __name__ == '__main__':
