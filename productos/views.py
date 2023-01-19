@@ -20,12 +20,12 @@ class ProductApiView(APIView):
             'products.json',
             'products_wom.json'
         ]
-        #xiaomi_ws('webscraping/products.json')
-        #wom_ws('webscraping/products_wom.json')
-        Product.
+        Product.objects.all().delete()
         extraData()
-        #for name in names:
-        #    save_products('webscraping/'+name)
+        xiaomi_ws('webscraping/products.json')
+        wom_ws('webscraping/products_wom.json')
+        for name in names:
+            save_products('webscraping/'+name)
 
         print('Se ha realizado el webscraping, se guardaron los productos en la base de datos.')
         products = Product.objects.all().values()
