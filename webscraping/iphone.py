@@ -12,7 +12,7 @@ def iphone():
 
     for div in soup.find_all("li", class_="item product product-item"):
         print("===================")
-        nombre = (div.find("div",class_="product details product-item-details").a.string)
+        nombre = div.find("a",class_="product-item-link").get_text()
         precio = (div.find("span",class_="price-container price-final_price tax weee").span.string)
         url_celular = (div.find("div", class_="product-item-info").a["href"])
         url_imagen = (div.find("span",class_="product-image-wrapper").img["data-src"])

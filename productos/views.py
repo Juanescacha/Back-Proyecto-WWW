@@ -24,14 +24,14 @@ class ProductApiView(APIView):
     def post(self, request):
         Product.objects.all().delete()
 
-        #iphone() pendiente arreglar los nombres
-        #iphone_cleversel() pendiente mostrar bien los precios
+        #iphone_cleversel()  
+        iphone() 
         iphone_merlib()
         xiaomi_phonelectrics() # <- iphone 
 
         samsumg_merlib()
-        #samsung_cleversel() pendiente mostrar bien los precios
         samsung_phonelectrics()
+        samsung_cleversel() 
 
         xiaomi_ws()
         wom_ws() # <- xiaomi
