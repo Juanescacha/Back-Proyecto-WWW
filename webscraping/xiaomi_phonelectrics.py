@@ -29,7 +29,7 @@ def xiaomi_phonelectrics():
                     url_image=url_imagen,
                     url_origin=url_celular,
                     vendor_address = 'Av El Dorado # 68C - 61 Torre Central Davivienda Bogotá - Colombia',
-                    base_product = None if not base_product_id else base_product_id.id,
+                    base_product = None if not base_product_id else base_product_id,
                 )
         p.save()
         

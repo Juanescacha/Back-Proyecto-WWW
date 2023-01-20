@@ -5,8 +5,10 @@ import json
 import os
 
 from .save_into_db import get_baseproduct_id
+from productos.models import Product
 
-def wom_ws(file_name):
+
+def wom_ws():
     headers = {
         "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36",
     }
@@ -46,22 +48,15 @@ def wom_ws(file_name):
 
             base_product_id = get_baseproduct_id(name)
 
-            lista_productos.append(
-                {
-                    'name': name,
-                    'url_origin': url_p,
-                    'url_image': img_url,
-                    'vendor_address': address,
-                    'is_active': True,
-                    'price': price, 
-                    'base_product': base_product_id.id,
-                },
+            p = Product(
+                name=name,
+                price=price,
+                url_image=img_url,
+                url_origin=url_p,
+                vendor_address=address,
+                base_product=None if not base_product_id else base_product_id,
             )
-    with open(file_name, 'w') as f:
-        json.dump(
-            lista_productos, 
-            f,
-        )
+            p.save()
 
 
 if __name__ == '__main__':
