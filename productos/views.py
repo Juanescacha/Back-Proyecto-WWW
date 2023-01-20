@@ -16,16 +16,11 @@ class ProductApiView(APIView):
 
     # realizar el web-scraping
     def post(self, request):
-        names = [
-            'products.json',
-            'products_wom.json'
-        ]
         Product.objects.all().delete()
+
         xiaomi_phonelectrics()
-        xiaomi_ws('webscraping/products.json')
-        wom_ws('webscraping/products_wom.json')
-        for name in names:
-            save_products('webscraping/'+name)
+        xiaomi_ws()
+        wom_ws()
 
         print('Se ha realizado el webscraping, se guardaron los productos en la base de datos.')
         products = Product.objects.all().values()
